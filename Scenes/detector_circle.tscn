@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvxroeaa17bbo"]
+
+[ext_resource type="Script" uid="uid://1ugmfedlj2yk" path="res://Scenes/detector_circle.gd" id="1_bb37c"]
+
+[node name="DetectorCircle" type="Node2D"]
+script = ExtResource("1_bb37c")
