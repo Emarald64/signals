@@ -55,6 +55,11 @@ move_down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="wall"
+2d_physics/layer_2="tresure"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
