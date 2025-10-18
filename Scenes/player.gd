@@ -19,7 +19,7 @@ func spawnCircle() -> void:
 func getCircleDistance() -> float:
 	# get distance to closest tresure
 	var minDistance:=10000000
-	for tresure in get_parent().tresures:
+	for tresure in get_parent().stage.getTresures():
 		var distanceSquared=global_position.distance_squared_to(tresure.global_position)
 		minDistance=min(distanceSquared,minDistance)
 	return minf(500.0,(minDistance**0.5)/((cos(PI*randf())*randomness)+1))

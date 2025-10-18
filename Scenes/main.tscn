@@ -1,16 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxfp45rvh503q"]
+[gd_scene load_steps=5 format=3 uid="uid://dxfp45rvh503q"]
 
 [ext_resource type="Script" uid="uid://dqe6vga453ic8" path="res://Scenes/main.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://clugn61ptfefe" path="res://assets/coin.png" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://d3cut6yphmj5k" path="res://Scenes/player.tscn" id="2_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://cutwgpaqvde1q" path="res://Scenes/tresure.tscn" id="4_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://bfhctd4oohoth" path="res://Scenes/stages/stage_1.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://bsqf8bs6s6mlk" path="res://Scenes/stages/stage_1.tscn" id="5_kry3j"]
 
-[node name="main" type="Node2D" node_paths=PackedStringArray("tresures")]
+[node name="main" type="Node2D"]
 script = ExtResource("1_bo1nx")
-tresures = [NodePath("Tresure"), NodePath("Tresure2")]
+
+[node name="Stage1" parent="." instance=ExtResource("5_kry3j")]
+z_index = -1
 
 [node name="Player" parent="." instance=ExtResource("2_jjvhh")]
+position = Vector2(123, 281)
 randomness = 0.01
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -36,11 +38,3 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 text = "+100"
-
-[node name="Tresure" parent="." instance=ExtResource("4_jjvhh")]
-position = Vector2(1219, 611)
-
-[node name="Tresure2" parent="." instance=ExtResource("4_jjvhh")]
-position = Vector2(646, 42)
-
-[node name="Stage 1" parent="." instance=ExtResource("5_kry3j")]

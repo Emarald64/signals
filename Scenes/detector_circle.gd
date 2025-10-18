@@ -1,8 +1,8 @@
 extends Node2D
 
 const circleSpeed:=200
-const gradient:=preload("res://Scenes/detector_circle_gradient.tres")
-const widthCurve:=preload("res://Scenes/detector_circle_width_curve.tres")
+const gradient:=preload("res://assets/detector_circle_gradient.tres")
+const widthCurve:=preload("res://assets/detector_circle_width_curve.tres")
 var currentRadius:=0.0
 var maxDistance:float
 

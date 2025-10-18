@@ -7,6 +7,7 @@
 [node name="Tresure" type="Area2D"]
 collision_layer = 2
 collision_mask = 0
+metadata/tresure = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_aciyn")
