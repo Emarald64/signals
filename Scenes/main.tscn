@@ -10,31 +10,50 @@ script = ExtResource("1_bo1nx")
 
 [node name="Stage1" parent="." instance=ExtResource("5_kry3j")]
 z_index = -1
+cameraLimits = Rect2i(0, 0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_jjvhh")]
 position = Vector2(123, 281)
 randomness = 0.01
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+update_rotation = false
+update_scale = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(123, 281)
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 720
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Time Left" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="Time Left" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "1:00.00"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("2_8gbba")
 stretch_mode = 5
 
-[node name="Reward" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Reward" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "+100"
