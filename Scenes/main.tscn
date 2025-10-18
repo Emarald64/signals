@@ -1,20 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxfp45rvh503q"]
+[gd_scene load_steps=7 format=3 uid="uid://dxfp45rvh503q"]
 
 [ext_resource type="Script" uid="uid://dqe6vga453ic8" path="res://Scenes/main.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://clugn61ptfefe" path="res://assets/coin.png" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://d3cut6yphmj5k" path="res://Scenes/player.tscn" id="2_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://bsqf8bs6s6mlk" path="res://Scenes/stages/stage_1.tscn" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://7krk7ifoop5p" path="res://Scenes/camera_2d.gd" id="3_jjvhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjvhh"]
+content_margin_left = 0.0
+content_margin_top = 5.0
+content_margin_right = 0.0
+content_margin_bottom = 5.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjvhh"]
+atlas = ExtResource("2_8gbba")
+region = Rect2(0, 0, 16, 16)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_bo1nx")
 
-[node name="Stage1" parent="." instance=ExtResource("5_kry3j")]
-z_index = -1
-cameraLimits = Rect2i(0, 0, 0, 0)
-
 [node name="Player" parent="." instance=ExtResource("2_jjvhh")]
 position = Vector2(123, 281)
-randomness = 0.01
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -27,33 +38,54 @@ limit_left = 0
 limit_top = 0
 limit_right = 1280
 limit_bottom = 720
+script = ExtResource("3_jjvhh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jjvhh")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2
 
-[node name="Time Left" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Time Left" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "1:00.00"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("2_8gbba")
+texture = SubResource("AtlasTexture_jjvhh")
 stretch_mode = 5
 
-[node name="Reward" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Reward" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "+100"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_jjvhh")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "1000"

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cutwgpaqvde1q" path="res://Scenes/tresure.tscn" id="2_4jepq"]
 
 [node name="Stage1" instance=ExtResource("1_jvroi")]
+cameraLimits = Rect2i(0, 0, 1280, 720)
 
 [node name="Time Left" parent="." index="0"]
 autostart = true

@@ -21,7 +21,6 @@ texture = ExtResource("1_v0iea")
 shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="Ring Timer" type="Timer" parent="."]
-wait_time = 0.5
 autostart = true
 
 [node name="Tresure Collector" type="Area2D" parent="."]

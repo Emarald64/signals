@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 #@export var curve:Curve
 const SPEED = 300.0
-@export_range(0,1.0,0.01) var randomness:=0.33
+@export var randomness:float=3
 var animating:=false
 
 func _physics_process(_delta: float) -> void:
@@ -22,7 +22,9 @@ func getCircleDistance() -> float:
 	for tresure in get_parent().stage.getTresures():
 		var distanceSquared=global_position.distance_squared_to(tresure.global_position)
 		minDistance=min(distanceSquared,minDistance)
-	return minf(500.0,(minDistance**0.5)/((cos(PI*randf())*randomness)+1))
+	print(randomness)
+	print(cos(PI*randf())/randomness)
+	return minf(500.0,pow(minDistance,0.5)/((cos(PI*randf())/randomness)+1))
 
 
 func testCollectTresure(area: Area2D) -> void:
