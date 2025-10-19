@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
 #@export var curve:Curve
-const SPEED = 300.0
+var SPEED = 300.0
 @export var randomness:float=3
 var animating:=false
 
 func _physics_process(_delta: float) -> void:
-	velocity=Input.get_vector("move_left","move_right","move_up","move_down")*SPEED
-	move_and_slide()
+	if not animating:
+		velocity=Input.get_vector("move_left","move_right","move_up","move_down")*SPEED
+		move_and_slide()
 
 
 func spawnCircle() -> void:

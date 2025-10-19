@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3fmis3802cmx"]
+
+[ext_resource type="Script" uid="uid://camp3sd64x25y" path="res://Scenes/stages/shop.gd" id="1_j4yol"]
+[ext_resource type="Texture2D" uid="uid://clugn61ptfefe" path="res://assets/coin.png" id="2_0m2si"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flq44"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.051333338, 0, 0.11, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc2yc"]
+atlas = ExtResource("2_0m2si")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4yol"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0.4666667, 1, 0.6)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0m2si"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0.35466668, 0.76, 0.6)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 5
+
+[node name="Shop" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_flq44")
+script = ExtResource("1_j4yol")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Stats" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer/Stats"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Money" type="HBoxContainer" parent="HBoxContainer/Stats"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Stats/Money"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_yc2yc")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Stats/Money"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "1000"
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Stats"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Stage:3"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="HBoxContainer/Stats"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Exit" type="Button" parent="HBoxContainer/Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+theme_override_styles/normal = SubResource("StyleBoxFlat_j4yol")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0m2si")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0m2si")
+text = "Exit"
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Shop items" type="VBoxContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="HBoxContainer/Stats/Exit" to="." method="exit"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://d06x5ucf8f8j6"]
+
+[ext_resource type="Texture2D" uid="uid://clugn61ptfefe" path="res://assets/coin.png" id="1_wmysf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8rhe"]
+atlas = ExtResource("1_wmysf")
+region = Rect2(0, 0, 16, 16)
+
+[node name="ShopItem" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+metadata/title = ""
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Item name"
+
+[node name="Description" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "item description"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = SubResource("AtlasTexture_b8rhe")
+stretch_mode = 5
+
+[node name="Price" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "100"
+vertical_alignment = 1
