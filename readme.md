@@ -1,7 +1,7 @@
 # Signals
 ![hackatime](https://hackatime-badge.hackclub.com/U0785D5VDEK/signals)
 
-Try to find treasure with a detector
+Try to find treasure with a detector which sends out rings which stop at the locaito the the tresure.
 
 Tileset from https://kenney.nl/assets/tiny-dungeon
 
