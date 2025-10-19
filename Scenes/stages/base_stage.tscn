@@ -12,6 +12,7 @@ wait_time = 60.0
 one_shot = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
 texture_filter = 1
 position = Vector2(-32, -32)
 scale = Vector2(4, 4)

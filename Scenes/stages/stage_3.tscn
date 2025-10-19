@@ -10,11 +10,10 @@ atlas = ExtResource("4_leihc")
 region = Rect2(119, 68, 16, 16)
 
 [node name="Stage 3" instance=ExtResource("1_a2pg3")]
-spareTime = 40
 cameraLimits = Rect2i(0, 0, 1280, 1500)
 
 [node name="Time Left" parent="." index="0"]
-wait_time = 100.0
+wait_time = 40.0
 
 [node name="TileMapLayer" parent="." index="1"]
 z_index = -1

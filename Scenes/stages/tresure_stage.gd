@@ -10,6 +10,6 @@ func get_reward() -> int:
 func getTresures() -> Array[Area2D]:
 	var out:Array[Area2D]=[]
 	for child in get_children():
-		if child.get_meta("tresure",false):
+		if child.get_meta("tresure",false) and not child.collected:
 			out.append(child)
 	return out

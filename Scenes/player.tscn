@@ -21,10 +21,9 @@ texture = ExtResource("1_v0iea")
 shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="Ring Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="Tresure Collector" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tresure Collector"]

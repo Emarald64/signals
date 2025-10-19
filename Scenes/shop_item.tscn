@@ -1,6 +1,78 @@
-[gd_scene load_steps=3 format=3 uid="uid://d06x5ucf8f8j6"]
+[gd_scene load_steps=7 format=3 uid="uid://d06x5ucf8f8j6"]
 
 [ext_resource type="Texture2D" uid="uid://clugn61ptfefe" path="res://assets/coin.png" id="1_wmysf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmysf"]
+bg_color = Color(0.15127608, 0.15127608, 0.15127605, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.54509807)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 5
+expand_margin_left = 8.0
+expand_margin_top = 2.0
+expand_margin_right = 8.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8rhe"]
+bg_color = Color(0.24, 0.24, 0.24, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.54509807)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 5
+expand_margin_left = 8.0
+expand_margin_top = 2.0
+expand_margin_right = 8.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewy27"]
+bg_color = Color(0.24, 0.24, 0.24, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.54509807)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 5
+expand_margin_left = 8.0
+expand_margin_top = 2.0
+expand_margin_right = 8.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idtay"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 10.0
+expand_margin_top = 4.0
+expand_margin_right = 10.0
+expand_margin_bottom = 4.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b8rhe"]
 atlas = ExtResource("1_wmysf")
@@ -9,6 +81,10 @@ region = Rect2(0, 0, 16, 16)
 [node name="ShopItem" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_wmysf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b8rhe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ewy27")
+theme_override_styles/focus = SubResource("StyleBoxFlat_idtay")
 metadata/title = ""
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
