@@ -1,6 +1,8 @@
 # Signals
 ![hackatime](https://hackatime-badge.hackclub.com/U0785D5VDEK/signals)
 
+<img width="1280" height="720" alt="Screenshot_20251019_223916" src="https://github.com/user-attachments/assets/11948bff-e139-4d7e-9f52-9c033669b833" />
+
 In each stage there are hidden tresures that can be located using the tracker that sends out rings which stop at the nearest tresure. The faster you complete each stage, the more coins you earn. Coins can be spent at the shop every couple stages for upgrades
 
 Tileset from https://kenney.nl/assets/tiny-dungeon
