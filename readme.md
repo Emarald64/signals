@@ -1,7 +1,7 @@
 # Signals
 ![hackatime](https://hackatime-badge.hackclub.com/U0785D5VDEK/signals)
 
-Try to find treasure with a detector which sends out rings which stop at the locaito the the tresure.
+In each stage there are hidden tresures that can be located using the tracker that sends out rings which stop at the nearest tresure. The faster you complete each stage, the more coins you earn. Coins can be spent at the shop every couple stages for upgrades
 
 Tileset from https://kenney.nl/assets/tiny-dungeon
 
