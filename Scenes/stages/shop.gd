@@ -1,5 +1,5 @@
 extends Node
-enum itemAffects {pingWait,playerSpeed,pingRandomness,hintCircles,ringSpeed}
+enum itemAffects {pingWait,playerSpeed,pingRandomness,ringSpeed}
 
 @onready var player=get_node('../Player')
 
@@ -28,7 +28,7 @@ const items={
 }
 
 var currentItems:PackedStringArray=["Fast clock","Running shoes","Candy Lens","Faster Light"]
-var boughtItems:PackedStringArray=[]
+#var boughtItems:PackedStringArray=[]
 
 func _ready():
 	%Money.text=str(get_parent().money)
@@ -65,8 +65,7 @@ func shopItemPressed(title:String):
 		get_parent().money-=item[1]
 		%Money.text=str(get_parent().money)
 		doItemAffects(title)
-		#print(currentItems)
-		#get_node('../Button').grab_focus.call_deferred()
+		currentItems.erase(title)
 		updateShop()
 
 func doItemAffects(title:String)->void:
